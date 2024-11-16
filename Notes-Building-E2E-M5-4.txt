@@ -305,9 +305,31 @@ Module 5: Creating, Updating and Deleting Data
 
     - next create "edit" and "delete" button in HouseDetail component
   4. API Validation
+     - https://app.pluralsight.com/ilx/video-courses/fbbac3b2-0e56-464b-92f2-0b877f92f12c/8df0ce24-cefa-421a-9111-2ab738544221/0d6e7b96-932f-46ba-a550-1d619c3b2f54
 
+     - API validation  (servcer-side validation)
+         - https://app.pluralsight.com/ilx/video-courses/fbbac3b2-0e56-464b-92f2-0b877f92f12c/8df0ce24-cefa-421a-9111-2ab738544221/0d6e7b96-932f-46ba-a550-1d619c3b2f54
+
+        - MEANS VALDATION BY api - MORE IMPORTANT  than client-side valdation
+        - using data annotation are C# attributes on DTO properties.
+          List of Validation attributes  can be found here: https://4sh.nl/annotations
+        - modify api/dtos/HouseDetailDTO
+
+        - minimal API don't have any built-in functionality to do validation.
+
+          As a work around install minimalvalidation package: 
+
+              dotnet add package minivalidation
+
+        - open Api/Program.cs and add validation in Map.POST and Map.PUT
+
+     - displaying validation errors
+        - https://app.pluralsight.com/ilx/video-courses/fbbac3b2-0e56-464b-92f2-0b877f92f12c/8df0ce24-cefa-421a-9111-2ab738544221/253e7626-3174-40ca-9951-7f04d73280a2
+        
 
   Useful links:
+     List of Validation attributes  can be found here: https://4sh.nl/annotations
+    
      How to fetch data in modern React
        https://www.robinwieruch.de/react-fetching-data/?utm_source=substack&utm_medium=email 
 

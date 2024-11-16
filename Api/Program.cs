@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MiniValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,6 +71,12 @@ app.MapGet("/house/{houseId:int}", async(int houseId,IHouseRepository repo) =>
   //*second parameter is the IHouseRepository
   app.MapPost("/houses", async([FromBody] HouseDetailDto dto, IHouseRepository repo) =>
    {
+    //*the type of "out var errors" is dictionary of string array. 
+    //*the key will be the name of the property with a validation error
+     if( !MiniValidator.TryValidate(dto, out var errors)) 
+       //*If there are any problem dictionary of "errors" is returned
+       return Results.ValidationProblem(errors);
+
      var newHouse = await repo.Add(dto); //*now get the house
 
      //*Use the result object to determine to the status code to return.
@@ -78,14 +85,19 @@ app.MapGet("/house/{houseId:int}", async(int houseId,IHouseRepository repo) =>
      //*database
      return Results.Created($"/houses/{newHouse.Id}", newHouse);
      //*This is the metadata forSwagger has to be added again so that it knows 
-     //*EP producess a 201
-   }).ProducesProblem(404).Produces<HouseDetailDto>(StatusCodes.Status200OK);          
+     //*EP produces a 404 and ProducesValidationProblem()
+   }).ProducesProblem(404).Produces<HouseDetailDto>(StatusCodes.Status200OK)
+     .ProducesValidationProblem();                               
 
   //*Update house
   //*Tell the api to look for the dto in the body. this is the first parameter,
   //*second parameter is the IHouseRepository
   app.MapPut("/houses", async([FromBody] HouseDetailDto dto, IHouseRepository repo) =>
    {
+     if( !MiniValidator.TryValidate(dto, out var errors)) 
+       //*If there are any problem dictionary of "errors" is returned
+       return Results.ValidationProblem(errors);
+
      //*We need to make sure that the house in the request body actually exist 
      if(await repo.Get(dto.Id) == null) 
        return Results.Problem($"House with ID {dto.Id} not found.",
@@ -97,7 +109,7 @@ app.MapGet("/house/{houseId:int}", async(int houseId,IHouseRepository repo) =>
 
      //*This is the metadata forSwagger has to be added again so that it knows 
      //*EP producess a 201
-   }).ProducesProblem(404).Produces<HouseDetailDto>(StatusCodes.Status200OK);        
+   }).ProducesValidationProblem().ProducesProblem(404).Produces<HouseDetailDto>(StatusCodes.Status200OK);        
 
     //* Delete House
     app.MapDelete("/houses/{houseId:int}", async(int houseId, IHouseRepository repo) =>

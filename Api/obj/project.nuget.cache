@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uwMiX1SuhOU=",
+  "dgSpecHash": "DH2KtWnHblQ=",
   "success": true,
   "projectFilePath": "C:\\_AMyReactDev\\chito-guijt-course-building-e2e-react-app-webapi-using-netcore8\\globom5-4-api-validation-and-react-displaying-validation-errors\\Api\\Api.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "C:\\Users\\tiger\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
     "C:\\Users\\tiger\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\tiger\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\tiger\\.nuget\\packages\\minivalidation\\0.9.1\\minivalidation.0.9.1.nupkg.sha512",
     "C:\\Users\\tiger\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\tiger\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.6\\sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\tiger\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
