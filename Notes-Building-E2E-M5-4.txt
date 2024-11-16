@@ -323,7 +323,7 @@ Module 5: Creating, Updating and Deleting Data
 
         - open Api/Program.cs and add validation in Map.POST and Map.PUT
 
-   6. displaying validation errors
+   6. Displaying validation errors
         - https://app.pluralsight.com/ilx/video-courses/fbbac3b2-0e56-464b-92f2-0b877f92f12c/8df0ce24-cefa-421a-9111-2ab738544221/253e7626-3174-40ca-9951-7f04d73280a2
 
 
